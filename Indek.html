@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantai Madura - Rekomendasi Wisata Pantai di Pulau Garam</title>
+    <meta name="description" content="Temukan pantai-pantai terbaik di Madura dengan pemandangan menakjubkan dan fasilitas lengkap untuk liburan sempurna Anda.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Beaches Section */
+        .beaches {
+            background-color: #f1f8f7;
+        }
+        
+        .beach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .beach-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .beach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .beach-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .beach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .beach-card:hover .beach-image img {
+            transform: scale(1.1);
+        }
+        
+        .beach-info {
+            padding: 20px;
+        }
+        
+        .beach-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .beach-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .beach-location i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .beach-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .beach-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            background-color: var(--light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact .section-title h2::after {
+            background-color: var(--accent);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 20px;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 60vh;
+                margin-top: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    Pantai Madura
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#beaches">Pantai</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Jelajahi Keindahan Pantai Madura</h1>
+                <p>Temukan pesona pantai-pantai tersembunyi di Pulau Garam dengan pasir putih, air jernih, dan pemandangan memukau yang akan membuat liburan Anda tak terlupakan.</p>
+                <a href="#beaches" class="btn">Jelajahi Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Pantai Madura</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Keindahan Alam yang Masih Alami</h3>
+                    <p>Madura, pulau yang terkenal dengan budaya karapan sapi dan garamnya, juga menyimpan pesona pantai yang memukau. Pantai-pantai di Madura menawarkan keindahan alam yang masih alami dengan pasir putih, air laut yang jernih, dan pemandangan matahari terbenam yang spektakuler.</p>
+                    <p>Dari pantai yang ramai dengan fasilitas lengkap hingga pantai tersembunyi yang masih perawan, Madura memiliki semuanya. Setiap pantai memiliki karakteristik unik yang membuatnya istimewa dan layak untuk dikunjungi.</p>
+                    <p>Dengan akses yang semakin mudah melalui Jembatan Suramadu, menjelajahi pantai-pantai Madura kini menjadi pengalaman yang mudah dan menyenangkan bagi wisatawan lokal maupun mancanegara.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Madura">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beaches Section -->
+    <section class="section beaches" id="beaches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rekomendasi Pantai</h2>
+            </div>
+            <div class="beach-grid">
+                <!-- Pantai 1 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Sembilan">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Sembilan</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangkalan, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan sembilan lekukan alam yang indah dan air laut yang jernih. Tempat yang sempurna untuk berenang dan bersantai.</p>
+                        <div class="beach-features">
+                            <span class="feature">Pasir Putih</span>
+                            <span class="feature">Berenang</span>
+                            <span class="feature">Kuliner</span>
+                            <span class="feature">Spot Foto</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai 2 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Slopeng">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Slopeng</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sumenep, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan bukit pasir yang unik dan pemandangan matahari terbenam yang spektakuler. Cocok untuk aktivitas sandboarding.</p>
+                        <div class="beach-features">
+                            <span class="feature">Pasir Putih</span>
+                            <span class="feature">Sandboarding</span>
+                            <span class="feature">Sunset View</span>
+                            <span class="feature">Kuliner</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai 3 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Lombang">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Lombang</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sumenep, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan hamparan pohon cemara udang yang rindang dan pasir putih yang halus. Suasana tenang dan alami.</p>
+                        <div class="beach-features">
+                            <span class="feature">Pohon Cemara</span>
+                            <span class="feature">Pasir Putih</span>
+                            <span class="feature">Suasana Tenang</span>
+                            <span class="feature">Camping</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai 4 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1519602035691-16ac091344ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Camplong">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Camplong</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sampang, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan pemandangan perbukitan dan air laut yang tenang. Tempat yang cocok untuk keluarga dengan fasilitas lengkap.</p>
+                        <div class="beach-features">
+                            <span class="feature">Fasilitas Lengkap</span>
+                            <span class="feature">Keluarga</span>
+                            <span class="feature">Berenang</span>
+                            <span class="feature">Spot Foto</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai 5 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Talang Siring">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Talang Siring</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pamekasan, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan tebing karang yang indah dan air laut yang jernih. Tempat yang cocok untuk snorkeling dan menikmati keindahan bawah laut.</p>
+                        <div class="beach-features">
+                            <span class="feature">Snorkeling</span>
+                            <span class="feature">Tebing Karang</span>
+                            <span class="feature">Air Jernih</span>
+                            <span class="feature">Spot Foto</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Pantai 6 -->
+                <div class="beach-card">
+                    <div class="beach-image">
+                        <img src="https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai Batu Bintang">
+                    </div>
+                    <div class="beach-info">
+                        <h3>Pantai Batu Bintang</h3>
+                        <div class="beach-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sumenep, Madura</span>
+                        </div>
+                        <p class="beach-description">Pantai dengan formasi batu unik berbentuk bintang dan pemandangan alam yang masih alami. Cocok untuk petualangan dan eksplorasi.</p>
+                        <div class="beach-features">
+                            <span class="feature">Batu Unik</span>
+                            <span class="feature">Alami</span>
+                            <span class="feature">Petualangan</span>
+                            <span class="feature">Spot Foto</span>
+                        </div>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka?</h2>
+            </div>
+            <div class="testimonial-grid">
+                <!-- Testimoni 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Liburan ke Pantai Slopeng sangat menyenangkan! Pemandangan sunset-nya luar biasa indah dan bukit pasirnya unik sekali. Pasti akan kembali lagi.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Rina Wijaya">
+                        </div>
+                        <div class="author-info">
+                            <h4>Rina Wijaya</h4>
+                            <p>Travel Blogger</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Pantai Lombang adalah surga tersembunyi di Madura. Pohon cemaranya yang rindang dan pasir putihnya membuat kami betah berlama-lama di sini.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Budi Santoso">
+                        </div>
+                        <div class="author-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Keluarga Wisatawan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Snorkeling di Pantai Talang Siring adalah pengalaman tak terlupakan. Airnya jernih dan kehidupan bawah lautnya sangat indah. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi Lestari">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dewi Lestari</h4>
+                            <p>Penyelam Amatir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. Raya Panglegur KM. 12, Pamekasan, Madura</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>(0324) 1234567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@pantaimadura.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 08.00 - 17.00 WIB</p>
+                    <p>Sabtu - Minggu: 09.00 - 15.00 WIB</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Pantai Madura adalah platform rekomendasi wisata pantai di Pulau Madura. Kami berkomitmen untuk mempromosikan keindahan alam Madura kepada dunia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#beaches">Pantai</a></li>
+                        <li><a href="#testimonials">Testimoni</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Pantai Populer</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Pantai Sembilan</a></li>
+                        <li><a href="#">Pantai Slopeng</a></li>
+                        <li><a href="#">Pantai Lombang</a></li>
+                        <li><a href="#">Pantai Camplong</a></li>
+                        <li><a href="#">Pantai Talang Siring</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Berlangganan newsletter kami untuk mendapatkan informasi terbaru tentang pantai-pantai di Madura.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Alamat Email Anda" required>
+                        </div>
+                        <button type="submit" class="btn">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Pantai Madura. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
